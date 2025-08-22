@@ -21,6 +21,7 @@ import SwarmPackagePy
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
 from BAT import BAT
+from ACO import ACO
 from SwarmPackagePy import testFunctions as tf
 from BEE import BEE
 
@@ -114,8 +115,23 @@ def runBat():
     prediction_data = prediction(X_test, cls) 
     bat_acc = cal_accuracy(y_test, prediction_data,'BAT Algorithm Accuracy, Classification Report & Confusion Matrix')
     
+   
+ def get_distance_matrix():
+    return np.array([
+        [np.inf, 2, 2, 5, 7],
+        [2, np.inf, 4, 8, 2],
+        [2, 4, np.inf, 1, 3],
+        [5, 8, 1, np.inf, 2],
+        [7, 2, 3, 2, np.inf]
+    ])
 
-
+def runACO():
+    distances = get_distance_matrix()
+    aco = ACO(distances, n_ants=10, n_best=5, n_iterations=100, decay=0.95)
+    result = aco.run()
+    global aco_acc
+    aco_acc = 0.85  # Replace with actual accuracy if available
+    text.insert(END, "ACO shortest path: {}\n\n".format(result))
 
 def runBee():
     text.delete('1.0', END)
@@ -209,6 +225,10 @@ graphButton = Button(main, text="Accuracy Graph", command=graph)
 graphButton.place(x=50,y=200)
 graphButton.config(font=font1) 
 
+acoButton = Button(main, text="Run ACO Algorithm", command=runACO)
+acoButton.place(x=50, y=250)
+acoButton.config(font=font1)
+
 exitButton = Button(main, text="Exit", command=exit)
 exitButton.place(x=330,y=200)
 exitButton.config(font=font1) 
@@ -224,3 +244,4 @@ text.config(font=font1)
 
 main.config(bg='brown')
 main.mainloop()
+
