@@ -1,54 +1,97 @@
-## Project Overview
+# 🫀 Heart Disease Prediction using Metaheuristic Algorithms
 
-- 🫀Heart disease remains one of the leading causes of death worldwide. Due to the food habits, Work culture and stress, the rate of heart diseases are increasing  regardless of age.
-- There are some already existing projects for this scenarios.
-- This project focuses solely on increasing and optimizing accuracy of the result. 
-- This project applies Algorithms inspired from bio(Metaheuristic)  to select relevant features,evaluate robustness, accuracy and to train predictive models.
-- This Project implements multiple algorithms like:<br>
-   #### [Aco](#antcolony-optimization-logic)
-   #### [Bat](#bat-algorithm)
-   #### [Bee](#bee-algorithm)
-   #### [Ga](#genetic-algorithm)
-  
-## Project Setup & Requirements
+A machine learning project that applies **bio-inspired (metaheuristic) optimization algorithms** for feature selection and predictive modeling to detect heart disease with optimized accuracy.
 
-- Clone the repo.
-- Python version 3.7 or above should be installed.
-- The instructions.txt contains the required libraries, run the command pip install -r instructions.txt
-- cd Heart_Disease_prediction(Navigate to the project directory)
-- python Main.py(Run the main script)
+---
 
-## Project Files📁 
+## 📌 Overview
 
-  Pycache
-    - It contains two .pyc files Bat and bee.
-    - Python compiled(pyc) speeds up execution by skipping the parsing and compiling steps next time the module is imported.
-  heart_dataset
-    -  Dataset_information contains the metadata.
-    -  Url_dataset contains the url to the dataset.
-    -  Dataset contains the data used to train the model.
-    -  Test contains the data which is used to obtain the result.you can replace the test with actual data.
+Heart disease remains one of the leading causes of death worldwide. Rising stress, poor diet, and modern work culture have made it increasingly prevalent across all age groups. This project goes beyond standard ML approaches by using **nature-inspired algorithms** to intelligently select the most relevant features and improve prediction accuracy.
 
-### Antcolony Optimization logic🐜
-Inspired by the foraging behavior of ants and their use of pheromone trails.
-Excellent for discrete optimization and feature selection tasks.
+The system compares four metaheuristic algorithms side by side and visualizes their performance through an interactive GUI.
 
-### Bat Algorithm🦇
-Inspired by bAT  mimicing natural behaviors that can adapt to noisy or complex landscapes.
-Adapts dynamically to locate optimal solutions in continuous domains.Useful for parameter tuning and nonlinear optimization.
+---
 
-### Bee Algorithm📈
-- Based on the foraging patterns of honeybees searching for nectar. Combines local search (near good solutions) with global search (random scouts).
-- Effective for multi-modal optimization and feature subset selection.
+## 🧠 Algorithms Implemented
 
-### Genetic Algorithm📈
-- Inspired by natural selection and genetics: selection, crossover, mutation.
-- Great for model optimization, feature selection, and rule generation.
+| Algorithm | Inspiration | Key Strength |
+|-----------|-------------|--------------|
+| **ACO** (Ant Colony Optimization) | Ant foraging & pheromone trails | Discrete optimization & feature selection |
+| **BAT** (Bat Algorithm) | Echolocation behavior of bats | Continuous domain & nonlinear optimization |
+| **BEE** (Bee Algorithm) | Honeybee nectar foraging patterns | Multi-modal optimization & feature subset selection |
+| **GA** (Genetic Algorithm) | Natural selection & genetics | Feature selection, model optimization, rule generation |
 
-### Main
-- Contains the actual code where all algorithms are combined.
+---
 
-## 🖥️Output
-- Launches a Tkinter GUI to interact with all algorithms.
-- Displays a graph📈 comparing algorithm accuracies.
-- Provides a text-based prediction of heart disease stage.
+## 📁 Project Structure
+
+```
+Heart_Disease_prediction/
+│
+├── __pycache__/              # Compiled Python bytecode (BAT, BEE)
+├── heart_dataset/
+│   ├── Dataset_information   # Metadata about the dataset
+│   ├── Url_dataset           # Source URL for the dataset
+│   ├── Dataset               # Training data
+│   └── Test                  # Test data (replace with real patient data)
+│
+├── ACO.py                    # Ant Colony Optimization logic
+├── BAT.py                    # Bat Algorithm logic
+├── BEE.py                    # Bee Algorithm logic
+├── GA.py                     # Genetic Algorithm logic
+├── Main.py                   # Entry point — integrates all algorithms + GUI
+├── instructions.txt          # Required Python libraries
+└── README.md
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+### Prerequisites
+- Python **3.7 or above**
+- pip (Python package manager)
+
+### Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/akashkadambala/Heart_Disease_prediction.git
+   cd Heart_Disease_prediction
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -r instructions.txt
+   ```
+
+3. **Run the application**
+   ```bash
+   python Main.py
+   ```
+
+---
+
+## 🖥️ Output
+
+- Launches a **Tkinter GUI** to interact with and run all algorithms
+- Displays a **comparison graph** showing accuracy of each algorithm
+- Provides a **text-based prediction** of heart disease stage based on test data
+
+---
+
+## 📊 Dataset
+
+The dataset is located in the `heart_dataset/` folder. You can replace the `Test` file with real patient data to get predictions. Refer to `Dataset_information` for metadata and feature descriptions.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
